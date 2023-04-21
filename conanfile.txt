@@ -1,0 +1,6 @@
+ [requires]
+
+visit_struct/1.0
+
+ [generators]
+ cmake
