@@ -12,8 +12,8 @@ find_package(yaml-cpp REQUIRED)
 include(${CMAKE_CURRENT_SOURCE_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_executable(parseyaml_test parseyaml_test.cpp)
+add_executable(parseyaml_test test/parseyaml_test.cpp)
 target_link_libraries(parseyaml_test yaml-cpp pthread)
 
-add_executable(test test.cc)
+add_executable(test test/test.cc)
 target_link_libraries(test yaml-cpp ${CONAN_LIBS})

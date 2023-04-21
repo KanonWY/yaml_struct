@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "include/struct_yaml.h"
+#include "../include/struct_yaml.h"
 
 struct AccountInfo
 {
@@ -38,9 +38,7 @@ int main()
 
     auto [node_str, e] = yaml_cpp_struct::to_yaml(ac);
     if (node_str.has_value()) {
-        std::ofstream fout("out.yaml");
-        fout << node_str.value();
-        fout.close();
+        yaml_cpp_struct::save_string_to_file(node_str.value(),"Test.yaml");
     }
 
     return 0;

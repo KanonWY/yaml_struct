@@ -92,31 +92,6 @@ int main22()
     return 0;
 }
 
-int main222()
-{
-    YAML::Node config = YAML::LoadFile("/home/kanon/code/yaml_show/example.yaml");
-    std::map<std::string, std::string> m;
-    testprase(config, m, "test_yaml.yaml");
-    for (const auto &item : m) {
-        std::cout << item.first << std::endl;
-    }
-    return 0;
-}
-
-int main333()
-{
-
-    YAML::Node config = YAML::LoadFile("/home/kanon/code/yaml_show/example.yaml");
-    std::map<std::string, YAML::Node> res;
-    parseYamlNodetest(config, res, "test_yaml.yaml");
-
-    for (const auto &item : res) {
-        std::cout << item.first << std::endl;
-    }
-
-    return 0;
-}
-
 void parseYamlNode(const YAML::Node &node, std::map<std::string, YAML::Node> &result, const std::string &prefix)
 {
     if (node.IsScalar() || node.IsSequence() || node.IsNull()) {
@@ -247,30 +222,8 @@ int main2333()
     return 0;
 }
 
-int NoramlAdd()
-{
-    YAML::Node config = YAML::LoadFile("/home/kanon/code/yaml_show/test.yaml");
-    printYAMLNode(config);
-    YAML::Node ep_node;
-    YAML::Node node;
-    node["hello"] = YAML::Load("[1,2,3]");
-    node["hello"].push_back(123344);
-    addNameNode(config, "heloo", node);
-    printYAMLNode(config);
-    return 0;
-}
 
 int main()
 {
-    YAML::Node config = YAML::LoadFile("/home/kanon/code/yaml_show/test.yaml");
-    printYAMLNode(config);
-    YAML::Node ep_node;
-    YAML::Node node;
-    node["hello"] = "world";
-    node["jdoakdo"] = "dkopakdoa";
-    node["hkdoakod"] = YAML::Load("[1,2,3]");
-    addNameNode(config, "key3/new_properties", node);
-    printYAMLNode(config);
-
     return 0;
 }

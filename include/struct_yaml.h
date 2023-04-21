@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <variant>
+#include <fstream>
 
 #include <yaml-cpp/yaml.h>
 #include <visit_struct/visit_struct.hpp>
@@ -103,6 +104,13 @@ inline std::tuple<std::optional<T>, std::string> from_yaml_string(const std::str
     } catch (const std::exception &e) {
         return std::make_tuple(std::nullopt, string_format("on loading %s", e.what()));
     }
+}
+
+inline void save_string_to_file(const std::string& str, const std::string& fileName)
+{
+    std::ofstream fout(fileName);
+    fout << str;
+    fout.close();
 }
 
 } // namespace yaml_cpp_struct
